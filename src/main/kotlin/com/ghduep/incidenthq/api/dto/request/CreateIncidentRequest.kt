@@ -10,7 +10,6 @@ data class CreateIncidentRequest(
     @field:Size(max = 100, message = "Incident title must between 100 characters")
     val title: String,
 
-
     @field:NotBlank(message = "Initial status is required")
     val status: String,
 
