@@ -1,6 +1,7 @@
 package com.ghduep.incidenthq.api.controller.admin
 
 import com.ghduep.incidenthq.api.dto.request.CreateIncidentRequest
+import com.ghduep.incidenthq.api.dto.request.ResolveIncidentRequest
 import com.ghduep.incidenthq.api.dto.request.UpdateIncidentRequest
 import com.ghduep.incidenthq.api.dto.response.AdminIncidentDetailResponse
 import com.ghduep.incidenthq.application.dto.ResolveIncidentCommand
