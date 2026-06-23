@@ -1,4 +1,4 @@
-package com.ghduep.incidenthq.application.usecases
+package com.ghduep.incidenthq.application.usecases.incident
 
 import com.ghduep.incidenthq.application.dto.CreateIncidentCommand
 import com.ghduep.incidenthq.domain.ComponentStatus
@@ -15,7 +15,7 @@ class CreateIncidentUseCase (
     private val incidentRepository: IncidentRepository,
     private val componentRepository: ComponentRepository,) {
     @Transactional
-    fun execute(command: CreateIncidentCommand): Incident {
+    suspend fun execute(command: CreateIncidentCommand): Incident {
         val components = componentRepository.findAllById(command.affectedComponentIds)
         if (components.isEmpty()) {
             throw IllegalArgumentException("At least one component must be present.")
