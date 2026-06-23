@@ -4,7 +4,6 @@ import com.ghduep.incidenthq.domain.Component
 import com.ghduep.incidenthq.domain.ComponentStatus
 import com.ghduep.incidenthq.domain.repository.ComponentRepository
 import com.ghduep.incidenthq.infrastructure.database.entity.ComponentEntity
-import com.ghduep.incidenthq.infrastructure.database.entity.IncidentEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import org.springframework.stereotype.Repository
