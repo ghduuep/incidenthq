@@ -8,5 +8,6 @@ import kotlin.uuid.Uuid
 data class ComponentEntity(
     @Id val id: Uuid,
     val name: String,
-
+    val description: String?,
+    val status: String,
 )

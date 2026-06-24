@@ -16,8 +16,8 @@ class CreateIncidentUseCase (
     private val componentRepository: ComponentRepository,) {
     @Transactional
     suspend fun execute(command: CreateIncidentCommand): Incident {
-        val components = componentRepository.findAllById(command.affectedComponentIds)
-        if (components.isEmpty()) {
+        val components = componentRepository.findAllById(command.affectedComponentIds)?.toList()
+        if (components?.take(1)?.count() == 1) {
             throw IllegalArgumentException("At least one component must be present.")
         }
 
@@ -30,7 +30,7 @@ class CreateIncidentUseCase (
             title = command.title,
             status = command.status,
             impact = command.impact,
-            affectedComponentIds = components.map { it.id },
+            affectedComponentIds = components?.map { it.id }?.toList() ?: emptyList(),
             updates = listOf(firstUpdate)
         )
 
