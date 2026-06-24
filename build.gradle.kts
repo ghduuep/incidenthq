@@ -47,6 +47,9 @@ dependencies {
 kotlin {
     compilerOptions {
         freeCompilerArgs.addAll("-Xjsr305=strict", "-Xannotation-default-target=param-property")
+        freeCompilerArgs.add(
+            "-opt-in=kotlin.uuid.ExperimentalUuidApi"
+        )
     }
 }
 

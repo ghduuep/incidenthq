@@ -2,6 +2,7 @@ package com.ghduep.incidenthq.application.dto
 
 import com.ghduep.incidenthq.domain.IncidentImpact
 import com.ghduep.incidenthq.domain.IncidentStatus
+import kotlinx.coroutines.flow.Flow
 import kotlin.uuid.Uuid
 
 data class CreateIncidentCommand(

@@ -7,4 +7,8 @@ data class Component(
     val name: String,
     val description: String?,
     val status: ComponentStatus = ComponentStatus.OPERATIONAL
-)
+) {
+    init {
+        require(name.isNotEmpty()) { "Name must not be empty" }
+    }
+}

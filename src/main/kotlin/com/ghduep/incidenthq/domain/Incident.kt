@@ -1,5 +1,7 @@
 package com.ghduep.incidenthq.domain
 
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emptyFlow
 import kotlin.time.Clock
 import kotlin.time.Instant
 import kotlin.uuid.Uuid
@@ -14,5 +16,8 @@ data class Incident(
     val updatedAt: Instant = Clock.System.now(),
     val updates: List<IncidentUpdate> = emptyList(),
 ) {
+    init {
+        require(title.isNotEmpty()) { "Title must not be empty" }
+    }
     fun isResolved(): Boolean = status == IncidentStatus.RESOLVED
 }

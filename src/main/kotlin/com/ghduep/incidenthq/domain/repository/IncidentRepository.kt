@@ -10,6 +10,6 @@ interface IncidentRepository {
     fun findAllPaginated(page: Int, size: Int): Flow<Incident>
     fun findAllCreatedAfter(dateTime: Instant): Flow<Incident>
     suspend fun findById(id: Uuid): Incident?
-    suspend fun save(incident: Incident)
+    suspend fun save(incident: Incident): Incident
     suspend fun delete(id: Uuid)
 }

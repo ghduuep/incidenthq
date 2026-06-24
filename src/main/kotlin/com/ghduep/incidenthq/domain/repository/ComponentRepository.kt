@@ -7,8 +7,8 @@ import kotlin.uuid.Uuid
 
 interface ComponentRepository {
     fun findAll(): Flow<Component>
-    fun findAllById(id: Uuid): Flow<Component>?
-    suspend fun save(component: Component): Incident
-    fun saveAll(components: List<Component>): Flow<Component>
+    fun findAllById(ids: List<Uuid>): Flow<Component>?
+    suspend fun save(component: Component): Component
+    fun saveAll(components: Flow<Component>): Flow<Component>
     suspend fun delete(id: Uuid)
 }

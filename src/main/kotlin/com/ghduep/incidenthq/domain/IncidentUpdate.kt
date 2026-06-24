@@ -9,4 +9,8 @@ data class IncidentUpdate(
     val message: String,
     val status: IncidentStatus,
     val createdAt: Instant = Clock.System.now(),
-)
+) {
+    init {
+        require(message.isNotEmpty()) { "Message must not be empty" }
+    }
+}
