@@ -6,6 +6,7 @@ import kotlin.uuid.Uuid
 
 data class IncidentUpdate(
     val id: Uuid = Uuid.random(),
+    val incidentId: Uuid,
     val message: String,
     val status: IncidentStatus,
     val createdAt: Instant = Clock.System.now(),

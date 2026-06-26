@@ -8,10 +8,11 @@ import kotlin.uuid.Uuid
 @Table("incidents")
 data class IncidentEntity(
     @Id val id: Uuid,
-    val name: String,
+    val title: String,
     val status: String,
     val impact: String,
-    val affectedComponentIds: String,
+    val affectedComponentIds: List<Uuid>,
     val createdAt: Instant,
-    val updatedAt: Instant
+    val updatedAt: Instant,
+    val updates: List<IncidentUpdateEntity> = emptyList()
 )

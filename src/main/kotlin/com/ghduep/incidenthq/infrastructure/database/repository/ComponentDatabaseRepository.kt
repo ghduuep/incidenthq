@@ -4,6 +4,8 @@ import com.ghduep.incidenthq.domain.Component
 import com.ghduep.incidenthq.domain.ComponentStatus
 import com.ghduep.incidenthq.domain.repository.ComponentRepository
 import com.ghduep.incidenthq.infrastructure.database.entity.ComponentEntity
+import com.ghduep.incidenthq.infrastructure.database.mapper.toDomain
+import com.ghduep.incidenthq.infrastructure.database.mapper.toEntity
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.toList
 import org.springframework.stereotype.Repository
@@ -32,18 +34,4 @@ class ComponentDatabaseRepository(private val r2dbcRepository: ComponentR2dbcRep
     override suspend fun delete(id: Uuid) {
         r2dbcRepository.deleteById(id)
     }
-
-    private fun Component.toEntity() = ComponentEntity(
-        id = this.id,
-        name = this.name,
-        description = this.description,
-        status = this.status.name
-    )
-
-    private fun ComponentEntity.toDomain() = Component (
-        id = this.id,
-        name = this.name,
-        description = this.description,
-        status = ComponentStatus.valueOf(this.status)
-    )
 }

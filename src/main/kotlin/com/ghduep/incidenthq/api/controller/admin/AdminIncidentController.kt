@@ -5,6 +5,7 @@ import com.ghduep.incidenthq.api.dto.request.ResolveIncidentRequest
 import com.ghduep.incidenthq.api.dto.request.UpdateIncidentRequest
 import com.ghduep.incidenthq.api.dto.response.AdminIncidentDetailResponse
 import com.ghduep.incidenthq.application.dto.ResolveIncidentCommand
+import com.ghduep.incidenthq.application.usecases.component.ListAdminComponentUseCase
 import com.ghduep.incidenthq.application.usecases.incident.ResolveIncidentUseCase
 import org.springframework.web.bind.annotation.*
 import kotlin.uuid.Uuid
